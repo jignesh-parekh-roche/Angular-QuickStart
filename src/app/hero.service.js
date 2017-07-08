@@ -12,7 +12,7 @@ var HeroService = (function () {
     }
     HeroService.prototype.getHeroes = function () {
         console.log('--> Inside HeroService > getHeroes', mock_heroes_1.HEROES);
-        return mock_heroes_1.HEROES;
+        return Promise.resolve(mock_heroes_1.HEROES);
     };
     return HeroService;
 }());

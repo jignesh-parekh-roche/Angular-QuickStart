@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
   
   getHeroes(): void {
   	console.log('--> heroService:', this.heroService);
-  	this.heroes = this.heroService.getHeroes();
+  	this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
   
   ngOnInit(): void {
