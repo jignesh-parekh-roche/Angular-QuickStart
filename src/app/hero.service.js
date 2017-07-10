@@ -14,6 +14,15 @@ var HeroService = (function () {
         console.log('--> Inside HeroService > getHeroes', mock_heroes_1.HEROES);
         return Promise.resolve(mock_heroes_1.HEROES);
     };
+    HeroService.prototype.getHeroesSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            // Simulate server latency with 2 second delay
+            setTimeout(function () {
+                resolve(_this.getHeroes());
+            }, 3000);
+        });
+    };
     return HeroService;
 }());
 HeroService = __decorate([

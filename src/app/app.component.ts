@@ -4,7 +4,7 @@ import { HeroService } from './hero.service';
 
 
 @Component({
-  selector: 'my-app',
+  selector: 'my-app-main',
   styles: [`
   .selected {
     background-color: #CFD8DC !important;
@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
   
   getHeroes(): void {
   	console.log('--> heroService:', this.heroService);
-  	this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+  	this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
   }
   
   ngOnInit(): void {

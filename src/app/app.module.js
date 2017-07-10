@@ -22,6 +22,7 @@ AppModule = __decorate([
             forms_1.FormsModule
         ],
         declarations: [
+            // Any new module / component should be declared here
             app_component_1.AppComponent,
             hero_detail_component_1.HeroDetailComponent
         ],

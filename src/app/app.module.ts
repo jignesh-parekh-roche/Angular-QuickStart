@@ -13,9 +13,10 @@ import { AppComponent }  from './app.component';
       FormsModule
    ],
   declarations: [
+    // Any new module / component should be declared here
     AppComponent,
     HeroDetailComponent
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
