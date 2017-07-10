@@ -10,6 +10,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var hero_detail_component_1 = require("./hero-detail.component");
 var app_component_1 = require("./app.component");
+var login_component_1 = require("./login/login.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,7 +25,8 @@ AppModule = __decorate([
         declarations: [
             // Any new module / component should be declared here
             app_component_1.AppComponent,
-            hero_detail_component_1.HeroDetailComponent
+            hero_detail_component_1.HeroDetailComponent,
+            login_component_1.LoginComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })

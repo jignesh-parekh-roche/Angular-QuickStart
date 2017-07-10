@@ -7,6 +7,8 @@ import { HeroDetailComponent } from './hero-detail.component';
 
 import { AppComponent }  from './app.component';
 
+import { LoginComponent } from './login/login.component';
+
 @NgModule({
   imports:      [
       BrowserModule,
@@ -15,7 +17,8 @@ import { AppComponent }  from './app.component';
   declarations: [
     // Any new module / component should be declared here
     AppComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    LoginComponent
   ],
   bootstrap: [ AppComponent ]
 })

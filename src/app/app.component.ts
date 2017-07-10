@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
   heroes: Hero[]; 
   onSelect(hero: Hero): void {
   	console.log("--> Inside onSelect func");
-		this.selectedHero = hero;
+	this.selectedHero = hero;
   }
   
   getHeroes(): void {
