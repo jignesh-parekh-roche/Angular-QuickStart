@@ -15,6 +15,7 @@ var login_component_1 = require("./login/login.component");
 var user_component_1 = require("./Users/user.component");
 var heroes_component_1 = require("./heroes.component");
 var hero_service_1 = require("./HeroDetail/hero.service");
+var dashboard_component_1 = require("./dashboard.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,6 +30,15 @@ AppModule = __decorate([
                 {
                     path: 'heroes',
                     component: heroes_component_1.HeroesComponent
+                },
+                {
+                    path: 'dashboard',
+                    component: dashboard_component_1.DashboardComponent
+                },
+                {
+                    path: '',
+                    redirectTo: '/dashboard',
+                    pathMatch: 'full'
                 }
             ])
         ],
@@ -38,7 +48,8 @@ AppModule = __decorate([
             hero_detail_component_1.HeroDetailComponent,
             login_component_1.LoginComponent,
             user_component_1.UsersComponent,
-            heroes_component_1.HeroesComponent
+            heroes_component_1.HeroesComponent,
+            dashboard_component_1.DashboardComponent
         ],
         providers: [
             hero_service_1.HeroService

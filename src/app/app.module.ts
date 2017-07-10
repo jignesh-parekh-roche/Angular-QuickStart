@@ -5,17 +5,14 @@ import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 
+
 import { HeroDetailComponent } from './HeroDetail/hero-detail.component';
-
 import { AppComponent }  from './app.component';
-
 import { LoginComponent } from './login/login.component';
-
 import { UsersComponent } from './Users/user.component';
-
 import { HeroesComponent } from './heroes.component';
-
 import { HeroService } from './HeroDetail/hero.service';
+import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
   imports:      [
@@ -25,7 +22,16 @@ import { HeroService } from './HeroDetail/hero.service';
   	  	{
     		path: 'heroes',
     		component: HeroesComponent
-  	  	}
+  	  	},
+  	  	{
+  	  		path: 'dashboard',
+  	  		component: DashboardComponent
+  	  	},
+  	  	{
+  			path: '',
+  			redirectTo: '/dashboard',
+  			pathMatch: 'full'
+		}
   	  ])
    ],
   declarations: [
@@ -34,7 +40,8 @@ import { HeroService } from './HeroDetail/hero.service';
     HeroDetailComponent,
     LoginComponent,
     UsersComponent,
-    HeroesComponent
+    HeroesComponent,
+    DashboardComponent
   ],
   providers: [
     HeroService
