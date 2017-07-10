@@ -8,10 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var router_1 = require("@angular/router");
 var hero_detail_component_1 = require("./HeroDetail/hero-detail.component");
 var app_component_1 = require("./app.component");
 var login_component_1 = require("./login/login.component");
 var user_component_1 = require("./Users/user.component");
+var heroes_component_1 = require("./heroes.component");
+var hero_service_1 = require("./HeroDetail/hero.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -21,14 +24,24 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            forms_1.FormsModule
+            forms_1.FormsModule,
+            router_1.RouterModule.forRoot([
+                {
+                    path: 'heroes',
+                    component: heroes_component_1.HeroesComponent
+                }
+            ])
         ],
         declarations: [
             // Any new module / component should be declared here
             app_component_1.AppComponent,
             hero_detail_component_1.HeroDetailComponent,
             login_component_1.LoginComponent,
-            user_component_1.UsersComponent
+            user_component_1.UsersComponent,
+            heroes_component_1.HeroesComponent
+        ],
+        providers: [
+            hero_service_1.HeroService
         ],
         bootstrap: [app_component_1.AppComponent]
     })
