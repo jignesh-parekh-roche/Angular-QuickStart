@@ -13,6 +13,9 @@ var UsersComponent = (function () {
     function UsersComponent() {
         this.users = [];
     }
+    UsersComponent.prototype.ngOnInit = function () {
+        console.log('--> users:', this.users);
+    };
     return UsersComponent;
 }());
 __decorate([
