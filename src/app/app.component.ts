@@ -55,6 +55,7 @@ import { HeroService } from './hero.service';
   }
 `],
   template: `
+  	<login-module>Loading AppComponent > LoginComponent here... </login-module>
     <h1>{{title}}</h1>
     <h2>My Heroes</h2>
 		<ul class="heroes">
