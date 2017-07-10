@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
+import { User } from './Users/user';
 
 @Component({
   selector: 'my-app-main',
@@ -63,7 +64,8 @@ import { HeroService } from './hero.service';
     		<span class="badge">{{hero.id}}</span> {{hero.name}}
     	</li>
 		</ul>
-		<hero-detail [hero]="selectedHero"></hero-detail>`,
+		<hero-detail [hero]="selectedHero"></hero-detail>
+		<users-list [users]="users"></users-list>`,
   providers: [HeroService]
 })
 
@@ -71,6 +73,7 @@ export class AppComponent implements OnInit {
   title = 'Tour of Heroes';
   selectedHero: Hero;
   heroes: Hero[]; 
+  users: User[];
   onSelect(hero: Hero): void {
   	console.log("--> Inside onSelect func");
 	this.selectedHero = hero;
@@ -83,6 +86,7 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
   	this.getHeroes();
+  	this.users = [{ id: 1, lastName: 'Parekh', firstName: 'Jigneshkumar'}];
   };
   
   constructor(private heroService: HeroService) { }

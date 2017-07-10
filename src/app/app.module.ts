@@ -9,6 +9,8 @@ import { AppComponent }  from './app.component';
 
 import { LoginComponent } from './login/login.component';
 
+import { UsersComponent } from './Users/user.component';
+
 @NgModule({
   imports:      [
       BrowserModule,
@@ -18,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     // Any new module / component should be declared here
     AppComponent,
     HeroDetailComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent
   ],
   bootstrap: [ AppComponent ]
 })
