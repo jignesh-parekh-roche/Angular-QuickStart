@@ -23,6 +23,10 @@ var HeroService = (function () {
             }, 3000);
         });
     };
+    HeroService.prototype.getHero = function (id) {
+        return this.getHeroes()
+            .then(function (heroes) { return heroes.find(function (hero) { return hero.id === id; }); });
+    };
     return HeroService;
 }());
 HeroService = __decorate([
