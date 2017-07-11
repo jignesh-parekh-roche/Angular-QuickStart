@@ -18,13 +18,15 @@ export class HeroesComponent implements OnInit {
   selectedHero: Hero;
   heroes: Hero[]; 
   users: User[];
+
+  constructor(private heroService: HeroService, private router: Router) { }
+
   onSelect(hero: Hero): void {
-  	console.log("--> Inside onSelect func");
-	  this.selectedHero = hero;
+  	this.selectedHero = hero;
   }
   
   getHeroes(): void {
-  	this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
+  	this.heroService.getHeroes().then(heroes => this.heroes = heroes);
   }
   
   ngOnInit(): void {
@@ -36,5 +38,23 @@ export class HeroesComponent implements OnInit {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
 
-  constructor(private heroService: HeroService, private router: Router) { }
+  add(name: string): void {
+    name = name.trim();
+    if(!name) { return; }
+    this.heroService.create(name)
+      .then(hero => {
+        this.heroes.push(hero);
+        this.selectedHero = null;
+      });
+  }
+
+  delete(hero: Hero): void {
+    this.heroService.delete(hero.id)
+      .then(() => {
+        this.heroes = this.heroes.filter(h => h !== hero);
+        if(this.selectedHero === hero) {
+          this.selectedHero = null;
+        }
+      });
+  } 
 }
