@@ -15,6 +15,7 @@ import { UsersComponent } from './Users/user.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroService } from './HeroDetail/hero.service';
 import { DashboardComponent } from './dashboard.component';
+import { HeroSearchComponent } from './hero-search.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DashboardComponent } from './dashboard.component';
     LoginComponent,
     UsersComponent,
     HeroesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   providers: [
     HeroService
