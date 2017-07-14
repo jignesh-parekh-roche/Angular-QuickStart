@@ -16,7 +16,12 @@ var InMemoryDataService = (function () {
             { id: 19, name: 'Magma' },
             { id: 20, name: 'Tornado' }
         ];
-        return { heroes: heroes };
+        var users = [
+            { "id": 1, "firstName": "Jignesh", "lastName": "Parekh" },
+            { "id": 2, "firstName": "Krital", "lastName": "Parekh" },
+            { "id": 3, "firstName": "Vihaan", "lastName": "Parekh" }
+        ];
+        return { heroes: heroes, users: users };
     };
     return InMemoryDataService;
 }());
