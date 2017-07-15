@@ -10,13 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
+require("rxjs/add/operator/filter");
+require("rxjs/add/operator/find");
+require("rxjs/add/operator/concatMap");
+require("rxjs/add/observable/from");
 var UserListService = (function () {
     function UserListService(http) {
         this.http = http;
     }
     UserListService.prototype.getUsers = function () {
-        console.log('--> Inside getUsers');
         return this.http.get('api/users')
             .map(function (response) { return response.json().data; });
         // this.http.get('/assets/data/user-list.json')
@@ -24,6 +28,17 @@ var UserListService = (function () {
         // 	.subscribe(users => {
         // 		console.log('--> Inside getUsers() > loading data from JSON file.', users);
         // 	});
+    };
+    UserListService.prototype.getEvenNumbers = function () {
+        return Observable_1.Observable.of(1, 2, 3, 4)
+            .map(function (x) { return x + 1; })
+            .filter(function (x) { return (x % 2) === 0; });
+    };
+    UserListService.prototype.getUserByFirstname = function (firstName) {
+        return this.http.get('api/users')
+            .map(function (response) { return response.json().data; })
+            .concatMap(function (array) { return Observable_1.Observable.from(array); })
+            .filter(function (user) { return user.firstName.startsWith(firstName); });
     };
     return UserListService;
 }());

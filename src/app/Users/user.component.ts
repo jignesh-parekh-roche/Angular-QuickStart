@@ -18,8 +18,17 @@ export class UsersComponent {
  		console.log('--> users:', this.users);
 
  		this.userListService.getUsers().subscribe(users => {
- 			console.log('--> Inside the user.component > ngOnInit() > getUsers() call', users);
+ 			console.log('--> List of users: ', users);
  			this.users = users;
+ 		});
+
+
+ 		this.userListService.getEvenNumbers().subscribe(number => {
+ 			console.log(`--> Even number: ${number}`);
+ 		});
+
+ 		this.userListService.getUserByFirstname('Jignesh').subscribe(user => {
+ 			console.log('--> User found:', user);
  		});
  	}
 }

@@ -19,8 +19,14 @@ var UsersComponent = (function () {
         var _this = this;
         console.log('--> users:', this.users);
         this.userListService.getUsers().subscribe(function (users) {
-            console.log('--> Inside the user.component > ngOnInit() > getUsers() call', users);
+            console.log('--> List of users: ', users);
             _this.users = users;
+        });
+        this.userListService.getEvenNumbers().subscribe(function (number) {
+            console.log("--> Even number: " + number);
+        });
+        this.userListService.getUserByFirstname('Jignesh').subscribe(function (user) {
+            console.log('--> User found:', user);
         });
     };
     return UsersComponent;
