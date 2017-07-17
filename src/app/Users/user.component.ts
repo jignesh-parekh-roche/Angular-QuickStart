@@ -28,7 +28,15 @@ export class UsersComponent {
  		});
 
  		this.userListService.getUserByFirstname('Jignesh').subscribe(user => {
- 			console.log('--> User found:', user);
+ 			console.log('--> User found by Firstname:', user);
+ 		});
+
+ 		this.userListService.getUserByLastname('Parekh').subscribe(user => {
+ 			console.log('--> User found by Lastname:', user);
+ 		});
+
+ 		this.userListService.getUsersByAge(30).subscribe(users => {
+ 			console.log('--> Inside getUsersByAge > return values:', users);
  		});
  	}
 }

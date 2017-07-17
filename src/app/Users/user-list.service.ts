@@ -6,6 +6,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/find';
 import 'rxjs/add/operator/concatMap';
+import 'rxjs/add/operator/concatMapTo';
+import 'rxjs/add/operator/concatAll';
+
 import 'rxjs/add/observable/from';
 
 
@@ -40,5 +43,18 @@ export class UserListService {
 				.map(response => response.json().data as User[])
 				.concatMap(array => Observable.from(array))
 				.filter(user => user.firstName.startsWith(firstName));
+	}
+
+	getUserByLastname(lastName: string): Observable<User>{
+		return this.http.get('api/users')
+				.map(response => response.json().data as User[])
+				.concatMap(array => Observable.from(array))
+				.filter(user => user.lastName.startsWith(lastName));
+	}
+
+	getUsersByAge(age: number): Observable<User[]>{
+		return this.http.get('api/users')
+				.map(response => response.json().data
+									.filter((user:User) => user.age > age) as User[]);	
 	}
 }

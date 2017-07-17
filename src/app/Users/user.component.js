@@ -26,7 +26,13 @@ var UsersComponent = (function () {
             console.log("--> Even number: " + number);
         });
         this.userListService.getUserByFirstname('Jignesh').subscribe(function (user) {
-            console.log('--> User found:', user);
+            console.log('--> User found by Firstname:', user);
+        });
+        this.userListService.getUserByLastname('Parekh').subscribe(function (user) {
+            console.log('--> User found by Lastname:', user);
+        });
+        this.userListService.getUsersByAge(30).subscribe(function (users) {
+            console.log('--> Inside getUsersByAge > return values:', users);
         });
     };
     return UsersComponent;

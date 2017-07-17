@@ -15,6 +15,8 @@ require("rxjs/add/operator/map");
 require("rxjs/add/operator/filter");
 require("rxjs/add/operator/find");
 require("rxjs/add/operator/concatMap");
+require("rxjs/add/operator/concatMapTo");
+require("rxjs/add/operator/concatAll");
 require("rxjs/add/observable/from");
 var UserListService = (function () {
     function UserListService(http) {
@@ -39,6 +41,17 @@ var UserListService = (function () {
             .map(function (response) { return response.json().data; })
             .concatMap(function (array) { return Observable_1.Observable.from(array); })
             .filter(function (user) { return user.firstName.startsWith(firstName); });
+    };
+    UserListService.prototype.getUserByLastname = function (lastName) {
+        return this.http.get('api/users')
+            .map(function (response) { return response.json().data; })
+            .concatMap(function (array) { return Observable_1.Observable.from(array); })
+            .filter(function (user) { return user.lastName.startsWith(lastName); });
+    };
+    UserListService.prototype.getUsersByAge = function (age) {
+        return this.http.get('api/users')
+            .map(function (response) { return response.json().data
+            .filter(function (user) { return user.age > age; }); });
     };
     return UserListService;
 }());
