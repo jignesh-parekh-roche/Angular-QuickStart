@@ -38,18 +38,16 @@ export class UserListService {
 				.filter(x => (x % 2) === 0);
 	}
 
-	getUserByFirstname(firstName: string): Observable<User>{
+	getUserByFirstname(firstName: string): Observable<User[]>{
 		return this.http.get('api/users')
-				.map(response => response.json().data as User[])
-				.concatMap(array => Observable.from(array))
-				.filter(user => user.firstName.startsWith(firstName));
+				.map(response => response.json().data
+						.filter((user: User) => user.firstName.startsWith(firstName)) as User[]);
 	}
 
-	getUserByLastname(lastName: string): Observable<User>{
+	getUserByLastname(lastName: string): Observable<User[]>{
 		return this.http.get('api/users')
-				.map(response => response.json().data as User[])
-				.concatMap(array => Observable.from(array))
-				.filter(user => user.lastName.startsWith(lastName));
+				.map(response => response.json().data
+					.filter((user: User) => user.lastName.startsWith(lastName)) as User[]);
 	}
 
 	getUsersByAge(age: number): Observable<User[]>{

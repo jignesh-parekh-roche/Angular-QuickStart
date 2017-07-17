@@ -38,15 +38,13 @@ var UserListService = (function () {
     };
     UserListService.prototype.getUserByFirstname = function (firstName) {
         return this.http.get('api/users')
-            .map(function (response) { return response.json().data; })
-            .concatMap(function (array) { return Observable_1.Observable.from(array); })
-            .filter(function (user) { return user.firstName.startsWith(firstName); });
+            .map(function (response) { return response.json().data
+            .filter(function (user) { return user.firstName.startsWith(firstName); }); });
     };
     UserListService.prototype.getUserByLastname = function (lastName) {
         return this.http.get('api/users')
-            .map(function (response) { return response.json().data; })
-            .concatMap(function (array) { return Observable_1.Observable.from(array); })
-            .filter(function (user) { return user.lastName.startsWith(lastName); });
+            .map(function (response) { return response.json().data
+            .filter(function (user) { return user.lastName.startsWith(lastName); }); });
     };
     UserListService.prototype.getUsersByAge = function (age) {
         return this.http.get('api/users')
