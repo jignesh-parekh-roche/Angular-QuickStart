@@ -25,7 +25,7 @@ var HeroesComponent = (function () {
     };
     HeroesComponent.prototype.ngOnInit = function () {
         this.getHeroes();
-        this.users = [{ id: 1, lastName: 'Parekh', firstName: 'Jigneshkumar' }];
+        this.users = [{ id: 1, lastName: 'Parekh', firstName: 'Jigneshkumar', age: 33 }];
     };
     HeroesComponent.prototype.gotoDetail = function () {
         this.router.navigate(['/detail', this.selectedHero.id]);
