@@ -22,6 +22,9 @@ var UsersComponent = (function () {
             console.log('--> List of users: ', users);
             _this.users = users;
         });
+        this.userListService.getUserById(2).subscribe(function (user) {
+            console.log('--> User by Id:', user);
+        });
         this.userListService.getEvenNumbers().subscribe(function (number) {
             console.log("--> Even number: " + number);
         });

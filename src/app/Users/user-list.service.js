@@ -36,6 +36,10 @@ var UserListService = (function () {
             .map(function (x) { return x + 1; })
             .filter(function (x) { return (x % 2) === 0; });
     };
+    UserListService.prototype.getUserById = function (id) {
+        return this.http.get('api/users')
+            .map(function (response) { return response.json().data.find(function (user) { return user.id === id; }); });
+    };
     UserListService.prototype.getUserByFirstname = function (firstName) {
         return this.http.get('api/users')
             .map(function (response) { return response.json().data

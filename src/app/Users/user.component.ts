@@ -22,6 +22,9 @@ export class UsersComponent {
  			this.users = users;
  		});
 
+ 		this.userListService.getUserById(2).subscribe(user => {
+ 			console.log('--> User by Id:', user);
+ 		});
 
  		this.userListService.getEvenNumbers().subscribe(number => {
  			console.log(`--> Even number: ${number}`);

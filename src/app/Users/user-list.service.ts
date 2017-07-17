@@ -38,6 +38,11 @@ export class UserListService {
 				.filter(x => (x % 2) === 0);
 	}
 
+	getUserById(id: number): Observable<User>{
+		return this.http.get('api/users')
+				.map(response => <User>response.json().data.find((user: User) => user.id === id));
+	}
+
 	getUserByFirstname(firstName: string): Observable<User[]>{
 		return this.http.get('api/users')
 				.map(response => response.json().data
